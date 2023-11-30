@@ -22,7 +22,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash(message="Logged in successfully", category='success')
-                user.isauthenticated = True
+                user.is_authenticated = True
                 login_user(user, remember=True)
                 return redirect(url_for('views.index'))
             else:
@@ -32,7 +32,7 @@ def login():
 
     return render_template("login.html", user=current_user)
 
-@auth.route('/logout')
+@auth.route('/logout', methods=['POST'])
 @login_required
 def logout():
     flash(message="Logged out successfully!", category='success')
@@ -88,7 +88,7 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             
-            new_user.isauthenticated = True
+            new_user.is_authenticated = True
             login_user(new_user, remember=True)
             flash(message="Account successfully created!", category='success')
             return redirect(url_for('views.index'))

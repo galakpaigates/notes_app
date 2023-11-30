@@ -21,7 +21,7 @@ def index():
             db.session.add(new_note)
             db.session.commit()
             
-            current_user.isauthenticated = True
+            current_user.is_authenticated = True
             flash(message="Note added!", category='success')
             
     return render_template("index.html", user=current_user)
