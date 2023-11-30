@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required, current_user
 from . import db
@@ -94,21 +94,3 @@ def sign_up():
             return redirect(url_for('views.home'))
 
     return render_template("sign_up.html", user=current_user)
-
-
-@app.errorhandler(404)
-def page_not_found(error):
-    return '<h2>404, Not found!</h2>', 404
-
-@app.errorhandler(400)
-def page_not_found(error):
-    return '<h2>400, Bad request!</h2>', 400
-
-@app.errorhandler(500)
-def page_not_found(error):
-    return '<h2>500, Internal Server Error!</h2>', 500
-
-@app.errorhandler(302)
-def page_not_found(error):
-    return redirect('https://www.google.com/', code=302)
-
