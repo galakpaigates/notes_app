@@ -24,7 +24,7 @@ def login():
                 flash(message="Logged in successfully", category='success')
                 user.is_authenticated = True
                 login_user(user, remember=True)
-                return redirect(url_for('views.index'))
+                return redirect(url_for('views.home'))
             else:
                 flash(message="Incorrect password, try again!", category='error')
         else:
@@ -91,6 +91,24 @@ def sign_up():
             new_user.is_authenticated = True
             login_user(new_user, remember=True)
             flash(message="Account successfully created!", category='success')
-            return redirect(url_for('views.index'))
+            return redirect(url_for('views.home'))
 
     return render_template("sign_up.html", user=current_user)
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return '<h2>404, Not found!</h2>', 404
+
+@app.errorhandler(400)
+def page_not_found(error):
+    return '<h2>400, Bad request!</h2>', 400
+
+@app.errorhandler(500)
+def page_not_found(error):
+    return '<h2>500, Internal Server Error!</h2>', 500
+
+@app.errorhandler(302)
+def page_not_found(error):
+    return redirect('https://www.google.com/', code=302)
+
