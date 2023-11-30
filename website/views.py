@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
+from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import *
 import json
@@ -7,7 +7,7 @@ views = Blueprint('views', __name__)
 
 @views.route('/', methods=['POST', 'GET'])
 @login_required
-def home():
+def index():
     
     if request.method == "POST":
         
@@ -24,7 +24,7 @@ def home():
             current_user.isauthenticated = True
             flash(message="Note added!", category='success')
             
-    return render_template("home.html", user=current_user)
+    return render_template("index.html", user=current_user)
     
 @views.route('/delete-note', methods=['POST'])
 def delete_note():

@@ -24,7 +24,7 @@ def login():
                 flash(message="Logged in successfully", category='success')
                 user.isauthenticated = True
                 login_user(user, remember=True)
-                return redirect(url_for('views.home'))
+                return redirect(url_for('views.index'))
             else:
                 flash(message="Incorrect password, try again!", category='error')
         else:
@@ -91,6 +91,6 @@ def sign_up():
             new_user.isauthenticated = True
             login_user(new_user, remember=True)
             flash(message="Account successfully created!", category='success')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.index'))
 
     return render_template("sign_up.html", user=current_user)
