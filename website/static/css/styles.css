@@ -18,6 +18,10 @@ body {
     }
 }
 
+#messageDiv {
+    margin-top: 55px;
+}
+
 #mainNav {
     position: fixed;
     width: 100vw;

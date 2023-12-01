@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, jsonify, current_app
+from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import *
 import json
@@ -21,7 +21,6 @@ def home():
             db.session.add(new_note)
             db.session.commit()
             
-            current_user.is_authenticated = True
             flash(message="Note added!", category='success')
             
     return render_template("index.html", user=current_user)
