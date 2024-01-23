@@ -12,7 +12,6 @@ chardet==4.0.0
 check50==3.3.10
 click==8.1.7
 colorama==0.4.4
-command-not-found==0.3
 configobj==5.0.6
 cryptography==3.4.8
 cs50==9.3.0
@@ -63,11 +62,9 @@ monotonic==1.6
 more-itertools==8.10.0
 msgpack==1.0.3
 netifaces==0.11.0
-numpy==1.26.3
 oauthlib==3.2.0
 olefile==0.46
 open-fprintd==0.1
-opencv-python==4.9.0.80
 packaging==23.2
 paramiko==2.9.3
 parso==0.8.3
