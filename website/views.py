@@ -25,6 +25,7 @@ def home():
             
     return render_template("index.html", user=current_user)
     
+# delete note endpoint
 @views.route('/delete-note', methods=['POST'])
 def delete_note():
     

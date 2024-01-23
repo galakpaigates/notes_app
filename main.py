@@ -1,5 +1,5 @@
 from website import create_app
-from flask import redirect
+import os
 
 app = create_app()
 
@@ -17,4 +17,4 @@ def internal_server_error(error):
 
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(debug=False, host="0.0.0.0", port=os.getenv("PORT", default=5000))
