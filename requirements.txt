@@ -1,7 +1,6 @@
 alembic==1.12.1
 annotated-types==0.5.0
 app==0.0.1
-apturl==0.5.2
 asgiref==3.5.0
 attrs==20.3.0
 bcrypt==3.2.0
